@@ -1,0 +1,30 @@
+# .NET build results
+bin/
+obj/
+out/
+publish/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.idea/
+.vscode/
+
+# User-specific files
+*.rsuser
+
+# Test results
+TestResults/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Secrets / local configuration
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
