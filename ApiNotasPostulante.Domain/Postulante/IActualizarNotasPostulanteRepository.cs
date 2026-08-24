@@ -7,6 +7,4 @@ public interface IActualizarNotasPostulanteRepository
     Task<TblEscuela?> ObtenerEscuelaAsync(string idEscuela, CancellationToken cancellationToken);
 
     Task<Dictionary<string, string>> ObtenerConfiguracionActivaAsync(CancellationToken cancellationToken);
-
-    Task<int> GuardarCambiosAsync(CancellationToken cancellationToken);
 }

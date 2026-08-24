@@ -18,6 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiNotasPostulante.Api\ApiNotasPostulante.Api.csproj" />
     <ProjectReference Include="..\ApiNotasPostulante.Application\ApiNotasPostulante.Application.csproj" />
     <ProjectReference Include="..\ApiNotasPostulante.Domain\ApiNotasPostulante.Domain.csproj" />
   </ItemGroup>

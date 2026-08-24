@@ -15,6 +15,7 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetConnectionString("UcciConnection")));
 
         services.AddScoped<IActualizarNotasPostulanteRepository, ActualizarNotasPostulanteRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

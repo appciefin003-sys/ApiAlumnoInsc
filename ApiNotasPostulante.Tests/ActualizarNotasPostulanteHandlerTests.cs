@@ -1,5 +1,6 @@
 using ApiNotasPostulante.Application.DTOs;
 using ApiNotasPostulante.Application.Features;
+using ApiNotasPostulante.Application.Validators;
 using ApiNotasPostulante.Domain.Postulante;
 using Xunit;
 
@@ -185,7 +186,10 @@ public class ActualizarNotasPostulanteHandlerTests
 
     private static ActualizarNotasPostulanteHandler CrearHandler(FakeRepository repository)
     {
-        return new ActualizarNotasPostulanteHandler(repository);
+        return new ActualizarNotasPostulanteHandler(
+            new FakeUnitOfWork(repository),
+            new ActualizarNotasPostulanteValidator(),
+            new NotasPostulanteService());
     }
 
     private static FakeRepository CrearRepository(string idFacultad = "FI")
@@ -258,9 +262,27 @@ public class ActualizarNotasPostulanteHandlerTests
             return Task.FromResult<Dictionary<string, string>>([]);
         }
 
-        public Task<int> GuardarCambiosAsync(CancellationToken cancellationToken)
+        public void RegistrarGuardado()
         {
             CantidadGuardados++;
+        }
+    }
+
+    private sealed class FakeUnitOfWork : IUnitOfWork
+    {
+        private readonly FakeRepository _repository;
+
+        public FakeUnitOfWork(FakeRepository repository)
+        {
+            _repository = repository;
+            PostulanteNotas = repository;
+        }
+
+        public IActualizarNotasPostulanteRepository PostulanteNotas { get; }
+
+        public Task<int> GuardarCambiosAsync(CancellationToken cancellationToken)
+        {
+            _repository.RegistrarGuardado();
             return Task.FromResult(1);
         }
     }

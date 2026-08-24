@@ -39,8 +39,4 @@ public class ActualizarNotasPostulanteRepository : IActualizarNotasPostulanteRep
             .ToDictionaryAsync(c => c.Variable, c => c.Valor ?? string.Empty, cancellationToken);
     }
 
-    public async Task<int> GuardarCambiosAsync(CancellationToken cancellationToken)
-    {
-        return await _context.SaveChangesAsync(cancellationToken);
-    }
 }
