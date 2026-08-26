@@ -117,11 +117,11 @@ public class ActualizarNotasPostulanteHandlerTests
         var response = await CrearHandler(repository).EjecutarAsync(CrearRequest(), CancellationToken.None);
 
         Assert.True(response.IsSuccess);
-        Assert.Equal(13.80m, repository.Postulantes[0].Puntaje);
-        Assert.Equal(10m, repository.Postulantes[0].RV);
-        Assert.Equal(12m, repository.Postulantes[0].RM);
-        Assert.Equal(14m, repository.Postulantes[0].LE);
-        Assert.Equal(16m, repository.Postulantes[0].CO);
+        Assert.Equal(13.80f, repository.Postulantes[0].Puntaje);
+        Assert.Equal(10f, repository.Postulantes[0].RV);
+        Assert.Equal(12f, repository.Postulantes[0].RM);
+        Assert.Equal(14f, repository.Postulantes[0].LE);
+        Assert.Equal(16f, repository.Postulantes[0].CO);
     }
 
     [Fact]
@@ -134,11 +134,11 @@ public class ActualizarNotasPostulanteHandlerTests
         var response = await CrearHandler(repository).EjecutarAsync(request, CancellationToken.None);
 
         Assert.True(response.IsSuccess);
-        Assert.Equal(12.20m, repository.Postulantes[0].Puntaje);
-        Assert.Equal(10m, repository.Postulantes[0].N2);
-        Assert.Equal(12m, repository.Postulantes[0].N5);
-        Assert.Equal(14m, repository.Postulantes[0].N6);
-        Assert.Equal(16m, repository.Postulantes[0].N7);
+        Assert.Equal(12.20f, repository.Postulantes[0].Puntaje);
+        Assert.Equal(10f, repository.Postulantes[0].N2);
+        Assert.Equal(12f, repository.Postulantes[0].N5);
+        Assert.Equal(14f, repository.Postulantes[0].N6);
+        Assert.Equal(16f, repository.Postulantes[0].N7);
     }
 
     [Fact]
@@ -154,14 +154,14 @@ public class ActualizarNotasPostulanteHandlerTests
         var response = await CrearHandler(repository).EjecutarAsync(request, CancellationToken.None);
 
         Assert.True(response.IsSuccess);
-        Assert.Equal(10.01m, repository.Postulantes[0].Puntaje);
+        Assert.Equal(10.01f, repository.Postulantes[0].Puntaje);
     }
 
     [Theory]
-    [InlineData("ADM", 14)]
-    [InlineData("ADV", 10)]
-    [InlineData("ADG", 10)]
-    public async Task UsaNotaBaseFueraDeCienciasDeLaSalud(string modalidad, int puntajeEsperado)
+    [InlineData("ADM", 14f)]
+    [InlineData("ADV", 10f)]
+    [InlineData("ADG", 10f)]
+    public async Task UsaNotaBaseFueraDeCienciasDeLaSalud(string modalidad, float puntajeEsperado)
     {
         var repository = CrearRepository("FI");
         var request = CrearRequest();
@@ -170,7 +170,7 @@ public class ActualizarNotasPostulanteHandlerTests
         var response = await CrearHandler(repository).EjecutarAsync(request, CancellationToken.None);
 
         Assert.True(response.IsSuccess);
-        Assert.Equal((decimal)puntajeEsperado, repository.Postulantes[0].Puntaje);
+        Assert.Equal(puntajeEsperado, repository.Postulantes[0].Puntaje);
     }
 
     [Fact]
@@ -182,7 +182,7 @@ public class ActualizarNotasPostulanteHandlerTests
         var response = await CrearHandler(repository).EjecutarAsync(CrearRequest(), CancellationToken.None);
 
         Assert.True(response.IsSuccess);
-        Assert.Equal(2, repository.Postulantes.Count(p => p.Puntaje == 13.80m));
+        Assert.Equal(2, repository.Postulantes.Count(p => p.Puntaje == 13.80f));
         Assert.Equal(1, repository.CantidadGuardados);
     }
 

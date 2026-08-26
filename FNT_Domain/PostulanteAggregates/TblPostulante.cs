@@ -12,15 +12,15 @@ public class TblPostulante
     public string? IDEscuela1 { get; set; }
     public string? IDEscuela2 { get; set; }
     public string? IngresoOpcion { get; set; }
-    public decimal? RV { get; set; }
-    public decimal? RM { get; set; }
-    public decimal? LE { get; set; }
-    public decimal? CO { get; set; }
-    public decimal? N2 { get; set; }
-    public decimal? N5 { get; set; }
-    public decimal? N6 { get; set; }
-    public decimal? N7 { get; set; }
-    public decimal? Puntaje { get; set; }
+    public float? RV { get; set; }
+    public float? RM { get; set; }
+    public float? LE { get; set; }
+    public float? CO { get; set; }
+    public float? N2 { get; set; }
+    public float? N5 { get; set; }
+    public float? N6 { get; set; }
+    public float? N7 { get; set; }
+    public float? Puntaje { get; set; }
     public string? Moodle { get; set; }
     public string? DescripMoodle { get; set; }
     public string? msgPostulante { get; set; }

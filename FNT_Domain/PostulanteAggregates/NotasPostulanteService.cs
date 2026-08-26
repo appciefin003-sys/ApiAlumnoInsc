@@ -18,13 +18,13 @@ public class NotasPostulanteService
         return modalidad is ModalidadADM or ModalidadADV or ModalidadADG;
     }
 
-    public decimal CalcularPuntaje(
+    public float CalcularPuntaje(
         string idFacultad,
         string modalidad,
-        decimal nota1,
-        decimal nota2,
-        decimal nota3,
-        decimal nota4)
+        float nota1,
+        float nota2,
+        float nota3,
+        float nota4)
     {
         var esModalidadADM = modalidad == ModalidadADM;
         if (idFacultad != FacultadCienciasSalud)
@@ -33,20 +33,20 @@ public class NotasPostulanteService
         }
 
         var puntaje = esModalidadADM
-            ? nota3 * 0.35m + nota4 * 0.35m + nota2 * 0.15m + nota1 * 0.15m
-            : nota1 * 0.35m + nota2 * 0.35m + nota3 * 0.15m + nota4 * 0.15m;
+            ? nota3 * 0.35f + nota4 * 0.35f + nota2 * 0.15f + nota1 * 0.15f
+            : nota1 * 0.35f + nota2 * 0.35f + nota3 * 0.15f + nota4 * 0.15f;
 
-        return Math.Round(puntaje, 2, MidpointRounding.AwayFromZero);
+        return MathF.Round(puntaje, 2, MidpointRounding.AwayFromZero);
     }
 
     public void ActualizarNotas(
         IEnumerable<TblPostulante> postulantes,
         string modalidad,
-        decimal nota1,
-        decimal nota2,
-        decimal nota3,
-        decimal nota4,
-        decimal puntaje)
+        float nota1,
+        float nota2,
+        float nota3,
+        float nota4,
+        float puntaje)
     {
         foreach (var postulante in postulantes)
         {

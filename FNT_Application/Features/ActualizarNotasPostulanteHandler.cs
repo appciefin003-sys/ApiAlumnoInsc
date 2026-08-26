@@ -83,10 +83,10 @@ public class ActualizarNotasPostulanteHandler
             return Falla("No rindió evaluación momento 1");
         }
 
-        var nota1 = request.Nota1.GetValueOrDefault();
-        var nota2 = request.Nota2.GetValueOrDefault();
-        var nota3 = request.Nota3.GetValueOrDefault();
-        var nota4 = request.Nota4.GetValueOrDefault();
+        var nota1 = (float)request.Nota1.GetValueOrDefault();
+        var nota2 = (float)request.Nota2.GetValueOrDefault();
+        var nota3 = (float)request.Nota3.GetValueOrDefault();
+        var nota4 = (float)request.Nota4.GetValueOrDefault();
         var puntaje = _notasService.CalcularPuntaje(
             idFacultad,
             modalidad,
