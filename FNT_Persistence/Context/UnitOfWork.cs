@@ -11,7 +11,7 @@ public class UnitOfWork : IUnitOfWork
         UcciDbContext context,
         IActualizarNotasPostulanteRepository postulanteNotasRepository)
     {
-        _context = context;
+        _context = context ?? throw new ArgumentNullException(nameof(context));
         PostulanteNotas = postulanteNotasRepository;
     }
 

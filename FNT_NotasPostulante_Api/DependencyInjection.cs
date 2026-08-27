@@ -9,11 +9,6 @@ public static class DependencyInjection
 
     public static WebApplicationBuilder AddApiServices(this WebApplicationBuilder builder)
     {
-        builder.Host.UseSerilog((context, services, configuration) => configuration
-            .ReadFrom.Configuration(context.Configuration)
-            .ReadFrom.Services(services)
-            .Enrich.FromLogContext());
-
         var allowedOrigins = builder.Configuration
             .GetSection("Cors:AllowedOrigins")
             .Get<string[]>() ?? [];
