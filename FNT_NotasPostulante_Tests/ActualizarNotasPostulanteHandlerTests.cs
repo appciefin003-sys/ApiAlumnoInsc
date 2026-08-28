@@ -287,5 +287,9 @@ public class ActualizarNotasPostulanteHandlerTests
             _repository.RegistrarGuardado();
             return Task.FromResult(1);
         }
+
+        public void Dispose()
+        {
+        }
     }
 }
