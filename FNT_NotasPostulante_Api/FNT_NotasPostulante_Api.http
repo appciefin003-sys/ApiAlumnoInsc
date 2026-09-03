@@ -1,0 +1,17 @@
+@host = https://localhost:7297
+
+POST {{host}}/v1/postulante-notas/
+Content-Type: application/json
+
+{
+  "IDAlumno": "A001",
+  "IDPerAcad": "202601",
+  "Ingresante": "1",
+  "Asistio": "1",
+  "IDEscuela": "501",
+  "IDEscuelaADM": "ADM",
+  "Nota1": 10,
+  "Nota2": 12,
+  "Nota3": 14,
+  "Nota4": 16
+}
